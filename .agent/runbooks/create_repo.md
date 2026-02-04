@@ -32,7 +32,7 @@ Repository name: BarberCRM
 
 WAIT — USER CONFIRMATION (MANDATORY)
 Before creating the repository, the agent MUST present the following information verbatim:
-- GitHub owner: MyTownDMIncorporated
+- GitHub owner: MyTownDigitalSolutions
 - New repository name: <derived folder name>
 - Template source: MyTownDigitalSolutions/Repo_Setup_Templates
 - Visibility: private
