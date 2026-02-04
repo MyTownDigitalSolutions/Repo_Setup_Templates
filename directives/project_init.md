@@ -1,122 +1,155 @@
-# DIRECTIVE: Project Initialization (Repo Bootstrap)
+# DIRECTIVE: Project Initialization (STRICT EXECUTION)
 
-## Purpose
-Initialize or retrofit a repository to conform to the Production-Grade Agent Constitution.
-This directive creates the standard directory structure and governance starter files
-without overwriting existing user content. It is safe and idempotent to re-run.
+## AUTHORITY
+This file is an EXECUTION DIRECTIVE for AI agents.
+It is not descriptive documentation.
+It must be followed literally and in order.
 
----
-
-## Trigger Conditions
-Use this directive when:
-- A new repository is created
-- A repository lacks standard agent governance files
-- The user requests:
-  - “project init”
-  - “repo bootstrap”
-  - “set this up with your standard structure”
-  - “apply my agent constitution”
+If any instruction in this file conflicts with agent defaults,
+this file OVERRIDES them.
 
 ---
 
-## Inputs
+## PURPOSE
+Initialize or retrofit a repository so it conforms exactly to the
+Production-Grade Agent Constitution.
 
-Required:
-- Access to the repository filesystem (read/write)
-
-Optional:
-- Project name (for README.md)
-- Governance source:
-  - Local templates
-  - Remote GitHub repo (e.g. Repo_Setup_Templates)
-  - Explicit file URLs
-
-Constraints:
-- Do NOT guess missing values
-- If a required governance file source is unclear → STOP and ask
+This directive is:
+- Deterministic
+- Idempotent (safe to run multiple times)
+- Non-destructive
 
 ---
 
-## Outputs
+## EXECUTION MODE
+- Mode: LITE
+- Escalation: DISABLED
+- Creativity: DISALLOWED
+- Inference: DISALLOWED
 
-### Required Directories (create if missing)
+The agent must NOT:
+- Invent files
+- Modify templates
+- Reword content
+- Skip steps
+- Combine steps
+- Optimize steps
+- Add “helpful” extras
+
+---
+
+## REQUIRED DIRECTORIES
+
+The agent must ensure the following directories exist.
+Create them ONLY if missing.
+
 - `.tmp/`
 - `execution/`
 - `directives/`
 - `.agent/`
 
-### Required Files (create if missing; NEVER overwrite without permission)
+Do NOT create additional directories.
+
+---
+
+## REQUIRED FILES
+
+The agent must ensure the following files exist.
+Create them ONLY if missing.
+NEVER overwrite existing files unless explicitly authorized.
+
 - `AGENTS.md`
 - `README.md`
 - `directives/DIRECTIVE_TEMPLATE.md`
 - `directives/project_init.md`
 - `.agent/codex_system_prompt.md`
 
-Validation criteria:
-- All directories exist
-- All required files exist and are non-empty
-- No existing user files are overwritten
+---
+
+## FILE SOURCING RULES
+
+All files MUST be sourced from the canonical governance repository:
+
+https://github.com/MyTownDigitalSolutions/Repo_Setup_Templates
+
+Rules:
+- Fetch files exactly as authored
+- Do NOT paraphrase
+- Do NOT summarize
+- Do NOT reformat
+- Preserve all content verbatim
+
+If any required file cannot be fetched:
+→ STOP immediately and report the failure.
 
 ---
 
-## Execution Tools
+## EXECUTION ORDER (MANDATORY)
 
-Preferred:
-- Deterministic filesystem or bootstrap tools (if present)
-
-Fallback:
-- Minimal, deterministic file creation actions supported by the environment
-
-If a new execution tool is required:
-- STOP
-- Request permission before creating it
-
----
-
-## Step-by-Step Flow
+The agent must perform the following steps in order:
 
 1. Inspect repository root
-2. Create missing directories
+2. Create missing required directories
 3. For each required file:
-   - If file exists → leave unchanged
-   - If file missing → create from canonical template
-4. Ensure `.gitignore` excludes:
-   - `.env`
-   - `.tmp/`
-   - credential files
-5. Validate outputs against checklist
-6. Report a concise summary of actions taken
+   - If file exists → DO NOTHING
+   - If file missing → fetch from canonical repo and write exactly
+4. Verify `.gitignore` exists
+   - If missing → STOP and report
+5. Validate results using the checklist below
+6. Output a concise summary
+7. STOP
 
 ---
 
-## Edge Cases & Constraints
+## SAFETY RULES (HARD)
 
-- Never overwrite existing files unless explicitly approved
-- Never delete user files
-- Never introduce paid API usage
-- If an existing structure conflicts with the standard layout → STOP
-- If governance templates are unavailable → STOP and ask how to proceed
+The agent must STOP immediately if:
+- Any required file already exists AND overwrite was not explicitly approved
+- The canonical repo is unreachable
+- Repository structure conflicts with required layout
+- Instructions are ambiguous
+- The agent is unsure how to proceed
+
+No recovery attempts.
+No alternatives.
+No assumptions.
 
 ---
 
-## Validation Checklist
+## VALIDATION CHECKLIST (MANDATORY)
+
+The agent must verify all items before reporting success.
+
 - [ ] `.tmp/` exists
 - [ ] `execution/` exists
 - [ ] `directives/` exists
 - [ ] `.agent/` exists
-- [ ] `AGENTS.md` exists
-- [ ] `directives/DIRECTIVE_TEMPLATE.md` exists
-- [ ] `directives/project_init.md` exists
-- [ ] `.agent/codex_system_prompt.md` exists
-- [ ] `README.md` exists
-- [ ] No existing user files overwritten
+- [ ] `AGENTS.md` exists and is non-empty
+- [ ] `README.md` exists and is non-empty
+- [ ] `directives/DIRECTIVE_TEMPLATE.md` exists and is non-empty
+- [ ] `directives/project_init.md` exists and is non-empty
+- [ ] `.agent/codex_system_prompt.md` exists and is non-empty
+- [ ] No existing files were overwritten
+
+If any item fails:
+→ STOP and report exactly which check failed.
 
 ---
 
-## Failure Learnings (Append-Only)
+## OUTPUT FORMAT (STRICT)
 
-- Date:
-- What failed:
-- Root cause:
-- Fix applied:
-- Preventive update:
+The agent’s final output MUST include:
+- A bullet list of created directories
+- A bullet list of created files
+- A statement confirming no overwrites occurred
+
+The agent MUST end execution with:
+
+STOP
+
+---
+
+## FAILURE LEARNINGS (APPEND-ONLY)
+
+This section is reserved.
+The agent must NOT modify it during initialization.
