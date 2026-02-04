@@ -61,9 +61,9 @@ If the response is anything other than an explicit confirmation:
 ## CREATE REMOTE REPOSITORY (PROCEED)
 After confirmation, the agent MUST execute the following command EXACTLY.
 No substitutions. No additional flags.
-gh repo create MyTownDMIncorporated/<folder-name>
---template MyTownDigitalSolutions/Repo_Setup_Templates
---private
+gh repo create MyTownDMIncorporated/<folder-name> \
+  --template MyTownDigitalSolutions/Repo_Setup_Templates \
+  --private
 
 Rules:
 - `<folder-name>` MUST be replaced with the derived local folder name
@@ -82,8 +82,7 @@ After successful repository creation, the agent MUST execute the following comma
 
 git init
 git branch -M main
-git remote add origin https://github.com/MyTownDMIncorporated/
-<folder-name>.git
+git remote add origin https://github.com/MyTownDMIncorporated/<folder-name>.git
 git pull origin main
 
 
