@@ -21,6 +21,38 @@ Before executing any steps, the agent MUST verify:
 
 If any prerequisite is not met: STOP and report the failure.
 
+GIT METADATA PRECHECK (MANDATORY)
+The agent MUST check whether a .git/ directory exists in the current folder.
+
+If a .git/ directory DOES NOT exist:
+
+Proceed to the next step.
+
+If a .git/ directory DOES exist:
+
+The agent MUST STOP and ask the user the following question verbatim:
+
+“A .git directory already exists in this folder.
+Do you want to permanently delete the existing Git metadata and continue?”
+
+If the user response is anything other than an explicit confirmation (for example “yes”):
+
+STOP immediately.
+
+If the user explicitly confirms YES:
+
+The agent MUST execute the following command EXACTLY:
+
+rm -rf .git
+
+If the deletion command fails:
+
+STOP and report the error.
+
+After successful deletion:
+
+Proceed with execution.
+
 DERIVE REPOSITORY NAME (READ-ONLY)
 1. Determine the current working directory name.
 2. Use this directory name EXACTLY as the GitHub repository name.
