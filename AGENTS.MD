@@ -11,6 +11,7 @@
 ---
 
 ## 🧠 CORE PHILOSOPHY (READ FIRST)
+CANONICAL_GITHUB_OWNER = MyTownDigitalSolutions
 
 > LLMs are probabilistic.
 > 
